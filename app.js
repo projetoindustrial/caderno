@@ -538,6 +538,8 @@ function updateHW() {
   document.getElementById("hw-c").textContent = c;
   document.getElementById("hw-hf").textContent = `${hf.toFixed(3)} m`;
   setGauge(document.getElementById("hw-needle"), document.getElementById("hw-gauge-arc"), v);
+  DASH.hw = `hf ${hf.toFixed(3)} m (v ${v.toFixed(2)} m/s)`;
+  if (typeof renderDashboard === "function") renderDashboard();
 
   // Tabela comparativa
   const rows = Object.entries(C_HAZEN)
@@ -595,6 +597,8 @@ function renderSK() {
 
   document.getElementById("sk-somak").textContent = somaK.toFixed(2);
   document.getElementById("sk-hloc").textContent = `${hLoc.toFixed(3)} m`;
+  DASH.sk = conexoes.length ? `ΣK ${somaK.toFixed(2)} — h_loc ${hLoc.toFixed(3)} m` : null;
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 
 document.getElementById("sk-add").addEventListener("click", () => {
@@ -879,6 +883,10 @@ function renderPiezo() {
   } else {
     alertEl.hidden = true;
   }
+  DASH.piezo = pontosPiezo.length
+    ? (temRisco ? "RISCO — piezométrica abaixo do terreno" : `sem subpressão (${pontosPiezo.length} pontos)`)
+    : null;
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 
 document.getElementById("piezo-add").addEventListener("click", () => {
@@ -1015,6 +1023,8 @@ function updateFluido() {
   } else {
     alertEl.hidden = true;
   }
+  DASH.fluido = `Re ${re.toLocaleString("pt-BR", { maximumFractionDigits: 0 })} (${regime}), v ${v.toFixed(2)} m/s${v > 3.0 ? " — acima de 3 m/s" : ""}`;
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 ["fl-rho", "fl-mu", "fl-q", "fl-d"].forEach((id) => document.getElementById(id).addEventListener("input", updateFluido));
 aplicarFluido();
@@ -1082,6 +1092,10 @@ function updateComp() {
     alertEl.hidden = false;
     alertEl.textContent = "Sem solução real: a perda por atrito excede a pressão disponível — aumente o diâmetro, reduza a vazão/comprimento ou revise P1.";
   }
+  DASH.comp = valido
+    ? `P2 ${(p2 / 1e5 - 1.01325).toFixed(3)} bar (man.), ΔP ${((p1 - p2) / 1e5).toFixed(4)} bar`
+    : "sem solução real — perda excede P1";
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 ["comp-m", "comp-mu", "comp-t", "comp-p1", "comp-q", "comp-d", "comp-l"].forEach((id) =>
   document.getElementById(id).addEventListener("input", updateComp)
@@ -1139,6 +1153,8 @@ function updateBif() {
   } else {
     alertEl.hidden = true;
   }
+  DASH.bif = `v ${vM.toFixed(2)} m/s vs erosional ${ve.toFixed(2)} m/s${vM > ve ? " — EROSÃO" : ""}`;
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 ["bif-m", "bif-qg", "bif-rhol", "bif-ql", "bif-t", "bif-p", "bif-d"].forEach((id) =>
   document.getElementById(id).addEventListener("input", updateBif)
@@ -1238,6 +1254,8 @@ function updateCv() {
 
   document.getElementById("cv-kv").textContent = kv.toFixed(2);
   document.getElementById("cv-cv").textContent = cv.toFixed(2);
+  DASH.cv = `Kv ${kv.toFixed(2)} / Cv ${cv.toFixed(2)}`;
+  if (typeof renderDashboard === "function") renderDashboard();
   // T-521 (2026-09-28): handoff pra Planta Virtual (valvula_controle_cv). Chaves = nomes de
   // `parametros` do contrato `valvula_controle_cv` (SG, dP_bar). A vazão Q não vai junto: na
   // Planta Virtual ela é a porta de entrada (varia ponto a ponto), não parâmetro.
@@ -1294,29 +1312,35 @@ function updatePsv() {
   if (typeof renderDashboard === "function") renderDashboard();
 
   const alertEl = document.getElementById("psv-alert");
-  if (k <= 1.0 || T <= 0 || W <= 0) {
+  const entradasValidas = !(k <= 1.0 || T <= 0 || W <= 0);
+  if (!entradasValidas) {
     alertEl.hidden = false;
     alertEl.textContent = "Parâmetros insuficientes ou inválidos para o cálculo — confira W, k e temperatura.";
   } else {
     alertEl.hidden = true;
   }
-
-  // T-520 (2026-09-28): handoff pra Planta Virtual (psv_api520). Chaves = nomes de `parametros`
-  // do contrato `psv_api520` que têm o MESMO significado neste módulo: sobrepressao_frac (aqui em
-  // %, vai /100), M_kg_kmol, k, T_c, Kd, Kc. NÃO vão: W (aqui é entrada direta; no ativo é
-  // calculado pelo cenário de incêndio a partir de A_molhada/h_lv/F), pset (é a porta de entrada
-  // P_set_pa do nó) e Kb (aqui fixo em 1,0 por hipótese, não é campo do usuário). Validação sobre
-  // os valores brutos dos campos: os `|| default` acima mascarariam campo vazio/zero.
-  const rSobre = parseFloat(document.getElementById("psv-sobre").value);
-  const rM = parseFloat(document.getElementById("psv-m").value);
-  const rK = parseFloat(document.getElementById("psv-k").value);
-  const rT = parseFloat(document.getElementById("psv-t").value);
-  const rKd = parseFloat(document.getElementById("psv-kd").value);
-  const rKc = parseFloat(document.getElementById("psv-kc").value);
-  const psvValido = rSobre > 0 && rM > 0 && rK > 1 && Number.isFinite(rT) && rT + 273.15 > 0 && rKd > 0 && rKc > 0;
-  DASH_RAW.psv = psvValido
-    ? { sobrepressao_frac: rSobre / 100, M_kg_kmol: rM, k: rK, T_c: rT, Kd: rKd, Kc: rKc }
-    : null;
+  // Dado cru pro handoff (T-520, 2026-09-27) -- mapeia os campos da UI pras
+  // chaves de `parametros` do contrato `psv_api520` (contrato_ativo.py).
+  // `W_alivio_kg_h` aciona o modo "vazão informada" do ativo (mesmo escopo
+  // deste módulo: W pronto, só dimensiona o orifício). Z=1 e Kb=1 e
+  // contrapressão atmosférica são as premissas EMBUTIDAS neste módulo (a
+  // fórmula acima é gás ideal, válvula convencional, descarga a baixa
+  // pressão) -- enviadas explicitamente pra o ativo reproduzir o mesmo
+  // número da tela (razão Python/PWA medida em 1,00005), não pra "adivinhar"
+  // valor real do processo. Nada de incêndio/área molhada aqui.
+  DASH_RAW.psv = entradasValidas ? {
+    W_alivio_kg_h: W,
+    pressao_ajuste_manometrica_pa: pset * 1e5,
+    sobrepressao_frac: sobre / 100,
+    MW_kg_kmol: M,
+    k: k,
+    T_alivio_k: T,
+    Kd: kd,
+    Kc: kc,
+    Kb: kb,
+    Z: 1.0,
+    contrapressao_abs_pa: 101325.0,
+  } : null;
   if (typeof atualizarBotaoHandoff === "function") atualizarBotaoHandoff("psv");
 }
 ["psv-w", "psv-pset", "psv-sobre", "psv-m", "psv-k", "psv-t", "psv-kd"].forEach((id) =>
@@ -1414,7 +1438,7 @@ registrarHandoff("boiloff", "Envia área, condutividade e espessura do isolament
 registrarHandoff("coluna_recheio", "Envia C-factor, densidades de líquido/vapor e fração de inundação pra Planta Virtual");
 registrarHandoff("bomba", "Envia H0, Hn, Qn (curva da bomba) e k do sistema pra Planta Virtual (bomba centrífuga); a altura estática Hest não é enviada -- é entrada da Planta Virtual");
 registrarHandoff("cv", "Envia densidade relativa (SG) e ΔP da válvula pra Planta Virtual (válvula de controle Kv/Cv); a vazão Q não é enviada -- é entrada da Planta Virtual");
-registrarHandoff("psv", "Envia sobrepressão, M, k, T, Kd e Kc pra Planta Virtual (PSV API 520/526); a vazão de alívio W e a pressão de ajuste não são enviadas -- W é calculada pelo cenário de incêndio no ativo e a pressão de ajuste é entrada da Planta Virtual; Kb não é enviado (fixo em 1,0 neste módulo)");
+registrarHandoff("psv", "Envia vazão de alívio, pressão de ajuste, sobrepressão, gás (MW, k), temperatura, Kd/Kc/Kb, Z=1 e contrapressão atmosférica pra Planta Virtual");
 registrarHandoff("transientes", "Envia tubo, comprimento, tempo de fechamento e pressão de serviço pra Planta Virtual (golpe de aríete, modelo simplificado Joukowsky/Allievi-Michaud); a velocidade não é enviada -- é entrada da Planta Virtual");
 registrarHandoff("aminas", "Envia composição do gás ácido, remoção fracionária, loading, concentração/densidade da solução e tipo de amina pra Planta Virtual");
 
@@ -1489,6 +1513,17 @@ function renderDashboard() {
     ["capex", "CAPEX por Correlação — estimativa", DASH.capex],
     ["ventosas", "Ventosas e VAP — orifícios", DASH.ventosas],
     ["transientes", "Transientes — golpe de aríete", DASH.transientes],
+    // T-182 (2026-09-28): os 10 módulos do AUD8 "Grupo 2" (antes sem valor no painel)
+    ["cv", "Válvula de Controle — Kv/Cv", DASH.cv],
+    ["hw", "Hazen-Williams — perda de carga", DASH.hw],
+    ["sk", "ΣK por Trecho — perda localizada", DASH.sk],
+    ["piezo", "Linha Piezométrica — subpressão", DASH.piezo],
+    ["fl", "Fluidos Petroquímicos — regime", DASH.fluido],
+    ["comp", "Escoamento Compressível — P2/ΔP", DASH.comp],
+    ["bif", "Bifásico + Erosão — API RP14E", DASH.bif],
+    ["rbi", "RBI Simplificado — maior risco", DASH.rbi],
+    ["ldar", "LDAR — emissão fugitiva", DASH.ldar],
+    ["emissoes", "Emissões de Combustão — CO₂", DASH.emissoes],
   ];
   linhas.forEach(([id, label, val]) => {
     const tr = document.createElement("tr");
@@ -3308,6 +3343,13 @@ function renderRbi() {
       renderRbi();
     });
   });
+  if (rbiEquipamentos.length) {
+    const riscoMax = Math.max(...rbiEquipamentos.map((e) => e.pof * e.cof));
+    DASH.rbi = `${rbiEquipamentos.length} equip. — maior risco ${riscoMax} (${rbiClasse(riscoMax)})`;
+  } else {
+    DASH.rbi = null;
+  }
+  if (typeof renderDashboard === "function") renderDashboard();
 }
 document.getElementById("rbi-add").addEventListener("click", () => {
   const tag = document.getElementById("rbi-tag").value.trim();
@@ -3370,6 +3412,8 @@ function renderLdar() {
   const totalTano = totalKgh * horas / 1000;
   document.getElementById("ldar-total-kgh").textContent = `${totalKgh.toFixed(2)} kg/h`;
   document.getElementById("ldar-total-tano").textContent = `${totalTano.toFixed(1)} t/ano`;
+  DASH.ldar = totalKgh > 0 ? `${totalKgh.toFixed(2)} kg/h (${totalTano.toFixed(1)} t/ano)` : null;
+  if (typeof renderDashboard === "function") renderDashboard();
 
   document.querySelectorAll(".ldar-qtd").forEach((el) => {
     el.addEventListener("input", () => {
@@ -3436,6 +3480,8 @@ function renderEmissoes() {
   document.getElementById("emissoes-total-co").textContent = `${totalCo.toFixed(2)} kg/h`;
   document.getElementById("emissoes-total-so2").textContent = `${totalSo2.toFixed(3)} kg/h`;
   document.getElementById("emissoes-total-co2-tano").textContent = `${((totalCo2 * horas) / 1000).toFixed(1)} t/ano`;
+  DASH.emissoes = totalCo2 > 0 ? `CO₂ ${totalCo2.toFixed(1)} kg/h (${((totalCo2 * horas) / 1000).toFixed(1)} t/ano)` : null;
+  if (typeof renderDashboard === "function") renderDashboard();
 
   document.querySelectorAll(".emissoes-consumo").forEach((el) => {
     el.addEventListener("input", () => {
