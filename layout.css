@@ -40,3 +40,11 @@
   .mod-cols { display: block; }
   .mod-ic { display: none; }
 }
+
+/* --- Menu lateral também na tela do catálogo (hub), em telas largas --- */
+@media (min-width: 900px) {
+  body.hub-mode { padding-left: 280px; }
+  body.hub-mode #nav { display: flex; }
+  body.hub-mode #nav .nsearch { display: none; } /* o hub já tem a própria busca */
+  .ngrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+}
