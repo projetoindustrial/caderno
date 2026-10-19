@@ -18,9 +18,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="nav.css">
 <!-- Casca compartilhada do Projeto Industrial (menu único em /shell/nav.json) -->
 <link rel="stylesheet" href="/shell/pi-shell.css">
-<script src="/shell/pi-shell.js" defer data-pi-mode="fab" data-pi-pos="br" data-pi-scheme="light" data-pi-offset="68" data-pi-active="caderno"></script>
+<script src="/shell/pi-shell.js" defer data-pi-mode="fab" data-pi-pos="br" data-pi-scheme="light" data-pi-offset="16" data-pi-active="caderno"></script>
 </head>
 <body>
 
@@ -3270,6 +3271,7 @@
 </div>
 
 <script src="app.js"></script>
+<script src="nav.js" defer></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
