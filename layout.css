@@ -1,0 +1,42 @@
+/* Caderno — layout em 2 colunas (entrada | resultados) para TODOS os módulos + correção de estouro horizontal.
+   Camada de apresentação: não altera fórmulas nem ids. Carregar depois de nav.css. */
+
+/* --- Correção do estouro em telas estreitas: itens de grid/flex não podem ter largura mínima = conteúdo --- */
+.module, .panel, .field { min-width: 0; }
+.field input, .field select { min-width: 0; width: 100%; }
+.form-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; }
+.table-panel { overflow-x: auto; }
+.module-title, .module-desc { overflow-wrap: anywhere; }
+
+/* --- Cabeçalho do módulo (ícone + título + descrição) --- */
+.mod-head { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--grid-line); }
+.mod-ic { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: var(--t, var(--primary)); }
+.mod-ic svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mod-head .module-title { margin: 0; font-size: 1.3rem; }
+.mod-head .module-desc { margin: 2px 0 0; }
+
+/* --- Colunas --- */
+.mod-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+.mod-in > .subhead:first-child, .mod-out > .subhead:first-child { margin-top: 0; }
+.mod-wide { margin-top: 16px; }
+
+/* --- Resultados em cartões (KPIs) --- */
+.mod-out .readout-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; background: none; border: 0; padding: 0; }
+.mod-out .readout { flex-direction: column; align-items: flex-start; gap: 4px; background: var(--panel); border: 1px solid var(--grid-line); border-radius: 10px; padding: 11px 13px; }
+.mod-out .readout-hero { border-top: 1px solid var(--grid-line); padding-top: 11px; background: var(--primary-soft); }
+.mod-out .readout-value { font-size: 1.25rem; color: var(--primary); overflow-wrap: anywhere; }
+.mod-out .readout-hero .readout-value { font-size: 1.4rem; }
+
+@media (min-width: 900px) {
+  body:not(.hub-mode) #app { max-width: 1120px; }
+  .module:not([hidden]) { background: var(--panel); border: 1px solid var(--grid-line); border-radius: var(--radius); padding: 22px; }
+  .mod-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; }
+  .mod-in .form-panel { background: none; border: 0; padding: 0; }
+  .mod-in .form-panel + .form-panel { margin-top: 4px; }
+  .mod-out .panel:not(.readout-panel) { margin-bottom: 12px; }
+}
+@media print {
+  .module:not([hidden]) { border: 0; padding: 0; }
+  .mod-cols { display: block; }
+  .mod-ic { display: none; }
+}

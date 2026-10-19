@@ -1,10 +1,12 @@
-const CACHE_NAME = "caderno-v4";
+const CACHE_NAME = "caderno-v5";
 const ASSETS = [
   "./index.html",
   "./styles.css",
   "./app.js",
   "./nav.css",
   "./nav.js",
+  "./layout.css",
+  "./layout.js",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
