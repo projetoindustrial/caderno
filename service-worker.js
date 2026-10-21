@@ -1,4 +1,4 @@
-const CACHE_NAME = "caderno-v6";
+const CACHE_NAME = "caderno-v7";
 const ASSETS = [
   "./index.html",
   "./styles.css",
@@ -6,6 +6,7 @@ const ASSETS = [
   "./nav.css",
   "./nav.js",
   "./layout.css",
+  "./ds-bridge.css",
   "./layout.js",
   "./manifest.json",
   "./icons/icon-192.png",

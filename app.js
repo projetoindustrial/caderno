@@ -780,7 +780,7 @@ function drawLineChart(svgEl, series, markers = []) {
 
   const allPoints = series.flatMap((s) => s.points);
   if (allPoints.length < 2) {
-    svgEl.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle" font-size="10" fill="#5B6E69">adicione ao menos 2 pontos</text>`;
+    svgEl.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle" font-size="10" fill="#526575">adicione ao menos 2 pontos</text>`;
     return;
   }
   const xs = allPoints.map((p) => p.x);
@@ -800,7 +800,7 @@ function drawLineChart(svgEl, series, markers = []) {
   const axisX = document.createElementNS(ns, "line");
   axisX.setAttribute("x1", PAD); axisX.setAttribute("x2", W - PAD);
   axisX.setAttribute("y1", H - PAD); axisX.setAttribute("y2", H - PAD);
-  axisX.setAttribute("stroke", "#C9D6D2"); axisX.setAttribute("stroke-width", "1");
+  axisX.setAttribute("stroke", "#D0D9E0"); axisX.setAttribute("stroke-width", "1");
   svgEl.appendChild(axisX);
 
   series.forEach((s) => {
@@ -823,7 +823,7 @@ function drawLineChart(svgEl, series, markers = []) {
   markers.forEach((m) => {
     const c = document.createElementNS(ns, "circle");
     c.setAttribute("cx", sx(m.x)); c.setAttribute("cy", sy(m.y));
-    c.setAttribute("r", "4.5"); c.setAttribute("fill", m.color || "#C4491D");
+    c.setAttribute("r", "4.5"); c.setAttribute("fill", m.color || "#A82F2F");
     c.setAttribute("stroke", "#fff"); c.setAttribute("stroke-width", "1.5");
     svgEl.appendChild(c);
   });
@@ -872,8 +872,8 @@ function renderPiezo() {
   });
 
   drawLineChart(document.getElementById("piezo-chart"), [
-    { points: terrenoPts, color: "#B5722E" },
-    { points: piezoPts, color: "#0E4B43", dashed: true },
+    { points: terrenoPts, color: "#00A6A6" },
+    { points: piezoPts, color: "#0E5263", dashed: true },
   ]);
 
   const alertEl = document.getElementById("piezo-alert");
@@ -964,10 +964,10 @@ function updateBomba() {
   drawLineChart(
     document.getElementById("bomba-chart"),
     [
-      { points: curvaBomba, color: "#0E4B43" },
-      { points: curvaSistema, color: "#B5722E" },
+      { points: curvaBomba, color: "#0E5263" },
+      { points: curvaSistema, color: "#00A6A6" },
     ],
-    qopValido ? [{ x: Qop, y: Hop, color: "#C4491D" }] : []
+    qopValido ? [{ x: Qop, y: Hop, color: "#A82F2F" }] : []
   );
 }
 
@@ -1655,10 +1655,10 @@ function updateEcon() {
   drawLineChart(
     document.getElementById("econ-chart"),
     [
-      { points: curvaEnergia, color: "#B5722E" },
-      { points: curvaTubo, color: "#0E4B43", dashed: true },
+      { points: curvaEnergia, color: "#00A6A6" },
+      { points: curvaTubo, color: "#0E5263", dashed: true },
     ],
-    [{ x: melhor.dMm, y: melhor.total, color: "#C4491D" }]
+    [{ x: melhor.dMm, y: melhor.total, color: "#A82F2F" }]
   );
 
   const alertEl = document.getElementById("econ-alert");
