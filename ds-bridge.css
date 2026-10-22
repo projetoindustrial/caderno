@@ -4,7 +4,7 @@
 :root {
   --color-brand-deep: #08263d;
   --color-brand-petroleum: #0e5263;
-  --color-brand-cyan: #00a6a6;
+  --color-brand-cyan: #009f9f;
   --color-brand-cyan-muted: #e6f7f7;
   --color-surface-page: #f4f7fa;
   --color-surface-card: #ffffff;
@@ -25,8 +25,14 @@
   --color-status-info-bg: #e8eef2;
   --color-border-default: #d0d9e0;
   --color-border-strong: #7d8f9e;
-  --color-border-focus: #00a6a6;
-  --color-focus-ring: 0 0 0 3px rgba(0, 166, 166, 0.35);
+  --color-border-focus: #0e5263;
+  --color-cat-1: #2786c4;
+  --color-cat-2: #7e961e;
+  --color-cat-3: #a62121;
+  --color-cat-4: #7b24b5;
+  --color-cat-5: #d46a94;
+  --color-cat-6: #b57f5b;
+  --color-focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #0e5263;
   --bg: var(--color-surface-page);
   --panel: var(--color-surface-card);
   --ink: var(--color-text-primary);
@@ -42,7 +48,7 @@
 /* DS: texto nunca em ciano sobre claro; ciano fica para preenchimentos, contornos e gráficos */
 .case-tier-tag { color: var(--color-text-link); border-color: var(--color-brand-cyan); }
 .btn-export-pdf:active { color: var(--color-brand-deep); }
-/* Foco: o token border-focus (#00A6A6) fica abaixo de 3:1 sobre fundo claro (2,79:1 na página, 2,998:1 no branco).
+/* Foco: o token border-focus antigo (#00A6A6) ficava abaixo de 3:1 (corrigido para #0E5263 no DS v2.1) sobre fundo claro (2,79:1 na página, 2,998:1 no branco).
    Anel duplo: petróleo por fora, branco por dentro (visível também sobre o cabeçalho escuro do hub). */
 #hub :focus-visible, .navbar-m :focus-visible, .nsearch:focus-within { outline: 2px solid var(--color-brand-petroleum); outline-offset: 2px; box-shadow: 0 0 0 2px #fff; }
 .field input:focus, .field select:focus { outline-color: var(--color-brand-petroleum); border-color: var(--color-brand-petroleum); }

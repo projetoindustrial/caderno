@@ -3,7 +3,8 @@
 .tabbar-wrap{display:none!important}
 #app{padding-bottom:32px}
 svg.ni{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.ncat-e{--t:#0F7C74}.ncat-f{--t:#2F6DB5}.ncat-q{--t:#3E7D3A}.ncat-t{--t:#1B7F96}.ncat-o{--t:#7A5BB5}.ncat-u{--t:#B5722E}
+/* DS v2.2: categorias = --color-cat-1..6 (ordem e,f,q,t,o,u) */
+.ncat-e{--t:var(--color-cat-1)}.ncat-f{--t:var(--color-cat-2)}.ncat-q{--t:var(--color-cat-3)}.ncat-t{--t:var(--color-cat-4)}.ncat-o{--t:var(--color-cat-5)}.ncat-u{--t:var(--color-cat-6)}
 #hub,#nav,.navbar-m{display:none}
 body.hub-mode #app{display:none}
 body.hub-mode #hub{display:block}
@@ -23,9 +24,9 @@ body.hub-mode #hub{display:block}
 .ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .ncard{display:flex;flex-direction:column;gap:6px;padding:18px;text-align:left;background:var(--panel);border:1px solid var(--grid-line);border-radius:16px;box-shadow:var(--n-sh);cursor:pointer}
 .ncard:hover{border-color:var(--t)}
-.ntile{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:var(--t);background:color-mix(in srgb,var(--t) 14%,transparent)}
+.ntile{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:color-mix(in srgb,var(--t) 80%,#000);background:color-mix(in srgb,var(--t) 14%,transparent)}
 .ncard b{font:600 1.05rem var(--font-display)}
-.ncard .nc{font-size:.82rem;font-weight:600;color:var(--t)}
+.ncard .nc{font-size:.82rem;font-weight:600;color:color-mix(in srgb,var(--t) 80%,#000)}
 .ncard p{margin:0;font-size:.85rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .nempty{grid-column:1/-1;padding:32px;text-align:center;color:var(--muted);background:var(--panel);border:1px dashed var(--grid-line);border-radius:16px}
 #nav{flex-direction:column;position:fixed;inset:0 auto 0 0;width:280px;z-index:30;overflow:auto;background:linear-gradient(180deg,var(--color-brand-deep),color-mix(in srgb,var(--color-brand-deep) 70%,#000));color:rgba(255,255,255,.95);padding:18px 14px}

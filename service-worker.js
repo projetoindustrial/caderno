@@ -1,4 +1,4 @@
-const CACHE_NAME = "caderno-v8";
+const CACHE_NAME = "caderno-v9";
 const ASSETS = [
   "./index.html",
   "./styles.css",
