@@ -872,7 +872,7 @@ function renderPiezo() {
   });
 
   drawLineChart(document.getElementById("piezo-chart"), [
-    { points: terrenoPts, color: "#00A6A6" },
+    { points: terrenoPts, color: "#009F9F" },
     { points: piezoPts, color: "#0E5263", dashed: true },
   ]);
 
@@ -965,7 +965,7 @@ function updateBomba() {
     document.getElementById("bomba-chart"),
     [
       { points: curvaBomba, color: "#0E5263" },
-      { points: curvaSistema, color: "#00A6A6" },
+      { points: curvaSistema, color: "#009F9F" },
     ],
     qopValido ? [{ x: Qop, y: Hop, color: "#A82F2F" }] : []
   );
@@ -1655,7 +1655,7 @@ function updateEcon() {
   drawLineChart(
     document.getElementById("econ-chart"),
     [
-      { points: curvaEnergia, color: "#00A6A6" },
+      { points: curvaEnergia, color: "#009F9F" },
       { points: curvaTubo, color: "#0E5263", dashed: true },
     ],
     [{ x: melhor.dMm, y: melhor.total, color: "#A82F2F" }]
