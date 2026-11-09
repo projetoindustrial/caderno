@@ -1,0 +1,69 @@
+# Caderno — cálculos de processo e hidráulica
+
+> 61 módulos de cálculo de processo e hidráulica industrial, direto no celular e offline. Ferramenta didática.
+
+## Módulos (61)
+- Darcy‑Weisbach
+- Hazen‑Williams
+- ΣK por Trecho
+- Rede Multitrecho
+- Linha Piezométrica
+- Bomba — Ponto de Operação
+- Fluidos Petroquímicos
+- Escoamento Compressível
+- Bifásico + Erosão
+- Espessura de Parede
+- Válvula de Controle
+- PSV — Válvula de Alívio
+- NPSH + Afinidade
+- Diâmetro Econômico
+- Conversor &amp; Painel
+- Vasos de Pressão
+- Trocadores de Calor
+- Colunas / Torres
+- Compressores
+- Medição de Vazão
+- Vapor / Condensado
+- Água de Resfriamento
+- Fornos / Caldeiras
+- Tanques
+- Flare / Header
+- Suportes / Expansão / Isolamento
+- Filtros
+- Materiais / Corrosão
+- Diagnóstico por Sintoma
+- Partida e Parada Segura
+- Inspeção Visual
+- HAZOP / LOPA
+- RBI Simplificado
+- Emissões Fugitivas / LDAR
+- Emissões de Combustão
+- PSSR — Checklist Pré-Partida
+- Balanço de Utilidades
+- Tanque de Pulmão (Surge Tank)
+- Balanço de Massa
+- Análise Econômica
+- CAPEX por Correlação
+- Ventosas e VAP
+- Transientes — Golpe de Aríete
+- Torre de Resfriamento (Merkel)
+- Válvula JT + Risco de Hidrato
+- Rede com Loops (Hardy Cross)
+- Aminas — Triagem GPSA
+- Separador API Água-Óleo
+- Proteção Catódica
+- Medição Fiscal — Placa de Orifício
+- Purgadores — Capacidade Requerida
+- Tubulação H2 — ASME B31.12
+- Proteção Contra Incêndio
+- HRSG — Nível Único de Pressão
+- Coluna Binária — Prato a Prato
+- Aminas — Absorção Kremser
+- Blowdown — API 521
+- Silo — Diâmetro Crítico (Jenike)
+- GNL/GLP — Boil-off
+- Coluna Recheio — Diâmetro
+- CO2 CCS — Peng-Robinson
+
+## Uso
+Abra https://projetoindustrial.github.io/caderno/ e escolha o módulo. Funciona offline depois da primeira visita. Resultados são didáticos: confirme em norma e projeto antes de usar em campo.

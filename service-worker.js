@@ -1,5 +1,6 @@
-const CACHE_NAME = "caderno-v10";
+const CACHE_NAME = "caderno-v11";
 const ASSETS = [
+  "./",
   "./index.html",
   "./styles.css",
   "./app.js",
@@ -9,6 +10,19 @@ const ASSETS = [
   "./ds-bridge.css",
   "./layout.js",
   "./manifest.json",
+  "/shell/pi-shell.css",
+  "/shell/pi-shell.js",
+  "/shell/nav.json",
+  "./fonts/fonts.css",
+  "./fonts/space-grotesk-latin-500-normal.woff2",
+  "./fonts/space-grotesk-latin-600-normal.woff2",
+  "./fonts/space-grotesk-latin-700-normal.woff2",
+  "./fonts/ibm-plex-sans-latin-400-normal.woff2",
+  "./fonts/ibm-plex-sans-latin-500-normal.woff2",
+  "./fonts/ibm-plex-sans-latin-600-normal.woff2",
+  "./fonts/ibm-plex-mono-latin-400-normal.woff2",
+  "./fonts/ibm-plex-mono-latin-500-normal.woff2",
+  "./fonts/ibm-plex-mono-latin-600-normal.woff2",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
@@ -42,7 +56,7 @@ self.addEventListener("fetch", (event) => {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
             return response;
           })
-          .catch(() => cached)
+          .catch(() => cached || (event.request.mode === "navigate" ? caches.match("./index.html") : undefined))
       );
     })
   );

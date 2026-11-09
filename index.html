@@ -14,9 +14,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="icon" href="icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="nav.css">
 <link rel="stylesheet" href="layout.css">
@@ -24,8 +22,11 @@
 <!-- Casca compartilhada do Projeto Industrial (menu único em /shell/nav.json) -->
 <link rel="stylesheet" href="/shell/pi-shell.css">
 <script src="/shell/pi-shell.js" defer data-pi-mode="fab" data-pi-pos="br" data-pi-scheme="light" data-pi-offset="16" data-pi-active="caderno"></script>
+<link rel="canonical" href="https://projetoindustrial.github.io/caderno/">
+<link rel="alternate" type="text/plain" href="https://projetoindustrial.github.io/caderno/llms.txt" title="llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Caderno — cálculos de processo e hidráulica", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "inLanguage": "pt-BR", "url": "https://projetoindustrial.github.io/caderno/", "description": "61 módulos de cálculo de processo e hidráulica industrial, direto no celular e offline. Ferramenta didática.", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}}</script>
 </head>
-<body>
+<body><noscript><h1>Caderno — cálculos de processo e hidráulica</h1><p>61 módulos de cálculo de processo e hidráulica industrial, direto no celular e offline. Ferramenta didática. A calculadora precisa de JavaScript; a lista dos módulos está em <a href="llms.txt">llms.txt</a>.</p></noscript>
 
 <header class="topbar">
   <div class="topbar-mark" aria-hidden="true">
@@ -65,7 +66,7 @@
 
   <!-- ============ DARCY-WEISBACH ============ -->
   <section class="module" data-module="dw" aria-labelledby="dw-title">
-    <h1 id="dw-title" class="module-title">Darcy‑Weisbach</h1>
+    <h2 id="dw-title" class="module-title">Darcy‑Weisbach</h2>
     <p class="module-desc">Perda de carga distribuída via fator de atrito (Colebrook‑White).</p>
 
     <div class="panel gauge-panel">
@@ -112,7 +113,7 @@
 
   <!-- ============ HAZEN-WILLIAMS ============ -->
   <section class="module" data-module="hw" aria-labelledby="hw-title" hidden>
-    <h1 id="hw-title" class="module-title">Hazen‑Williams</h1>
+    <h2 id="hw-title" class="module-title">Hazen‑Williams</h2>
     <p class="module-desc">Perda de carga empírica, comum em redes prediais.</p>
 
     <div class="panel gauge-panel">
@@ -161,7 +162,7 @@
 
   <!-- ============ ΣK POR TRECHO ============ -->
   <section class="module" data-module="sk" aria-labelledby="sk-title" hidden>
-    <h1 id="sk-title" class="module-title">ΣK por Trecho</h1>
+    <h2 id="sk-title" class="module-title">ΣK por Trecho</h2>
     <p class="module-desc">Perdas de carga localizadas (conexões e singularidades).</p>
 
     <div class="panel form-panel form-panel-row">
@@ -203,7 +204,7 @@
 
   <!-- ============ REDE MULTITRECHO ============ -->
   <section class="module" data-module="rede" aria-labelledby="rede-title" hidden>
-    <h1 id="rede-title" class="module-title">Rede Multitrecho</h1>
+    <h2 id="rede-title" class="module-title">Rede Multitrecho</h2>
     <p class="module-desc">Trechos encadeados — soma a perda distribuída (Darcy‑Weisbach) e localizada (ΣK) de cada um.</p>
 
     <div class="panel form-panel">
@@ -259,7 +260,7 @@
 
   <!-- ============ LINHA PIEZOMÉTRICA ============ -->
   <section class="module" data-module="piezo" aria-labelledby="piezo-title" hidden>
-    <h1 id="piezo-title" class="module-title">Linha Piezométrica</h1>
+    <h2 id="piezo-title" class="module-title">Linha Piezométrica</h2>
     <p class="module-desc">Perfil do terreno x linha piezométrica dinâmica, com alerta de subpressão.</p>
 
     <div class="panel form-panel">
@@ -306,7 +307,7 @@
 
   <!-- ============ BOMBA — PONTO DE OPERAÇÃO ============ -->
   <section class="module" data-module="bomba" aria-labelledby="bomba-title" hidden>
-    <h1 id="bomba-title" class="module-title">Bomba — Ponto de Operação</h1>
+    <h2 id="bomba-title" class="module-title">Bomba — Ponto de Operação</h2>
     <p class="module-desc">Interseção entre curva da bomba e curva do sistema (aproximação parabólica).</p>
 
     <h2 class="subhead">Curva da bomba (catálogo)</h2>
@@ -358,7 +359,7 @@
 
   <!-- ============ FLUIDOS PETROQUÍMICOS ============ -->
   <section class="module" data-module="fl" aria-labelledby="fl-title" hidden>
-    <h1 id="fl-title" class="module-title">Fluidos Petroquímicos</h1>
+    <h2 id="fl-title" class="module-title">Fluidos Petroquímicos</h2>
     <p class="module-desc">Propriedades de referência e velocidade/Reynolds para fluidos além da água.</p>
 
     <div class="panel gauge-panel">
@@ -412,7 +413,7 @@
 
   <!-- ============ ESCOAMENTO COMPRESSÍVEL ============ -->
   <section class="module" data-module="comp" aria-labelledby="comp-title" hidden>
-    <h1 id="comp-title" class="module-title">Escoamento Compressível</h1>
+    <h2 id="comp-title" class="module-title">Escoamento Compressível</h2>
     <p class="module-desc">Queda de pressão de gás em tubulação — equação isotérmica simplificada (Crane TP‑410), despreza o termo de energia cinética.</p>
 
     <div class="panel form-panel">
@@ -476,7 +477,7 @@
 
   <!-- ============ BIFÁSICO + EROSÃO (API RP14E) ============ -->
   <section class="module" data-module="bif" aria-labelledby="bif-title" hidden>
-    <h1 id="bif-title" class="module-title">Bifásico + Erosão</h1>
+    <h2 id="bif-title" class="module-title">Bifásico + Erosão</h2>
     <p class="module-desc">Velocidade da mistura gás‑líquido (modelo homogêneo sem escorregamento) x velocidade erosional API RP14E.</p>
 
     <h2 class="subhead">Fase gasosa</h2>
@@ -552,7 +553,7 @@
 
   <!-- ============ ESPESSURA DE PAREDE (ASME B31.3) ============ -->
   <section class="module" data-module="esp" aria-labelledby="esp-title" hidden>
-    <h1 id="esp-title" class="module-title">Espessura de Parede</h1>
+    <h2 id="esp-title" class="module-title">Espessura de Parede</h2>
     <p class="module-desc">Espessura mínima de tubo sob pressão interna, ASME B31.3 §304.1.2.</p>
 
     <div class="panel form-panel">
@@ -632,7 +633,7 @@
 
   <!-- ============ VÁLVULA DE CONTROLE (ISA 75 / Cv) ============ -->
   <section class="module" data-module="cv" aria-labelledby="cv-title" hidden>
-    <h1 id="cv-title" class="module-title">Válvula de Controle</h1>
+    <h2 id="cv-title" class="module-title">Válvula de Controle</h2>
     <p class="module-desc">Coeficiente de vazão Kv/Cv para líquidos, ISA 75 / IEC 60534.</p>
 
     <div class="panel form-panel">
@@ -665,7 +666,7 @@
 
   <!-- ============ PSV — VÁLVULA DE ALÍVIO (API 520/521) ============ -->
   <section class="module" data-module="psv" aria-labelledby="psv-title" hidden>
-    <h1 id="psv-title" class="module-title">PSV — Válvula de Alívio</h1>
+    <h2 id="psv-title" class="module-title">PSV — Válvula de Alívio</h2>
     <p class="module-desc">Área de orifício para alívio de vapor/gás em escoamento crítico (sônico), API 520 Parte I.</p>
 
     <div class="panel form-panel">
@@ -728,7 +729,7 @@
 
   <!-- ============ NPSH + AFINIDADE DE BOMBAS ============ -->
   <section class="module" data-module="npsh" aria-labelledby="npsh-title" hidden>
-    <h1 id="npsh-title" class="module-title">NPSH + Afinidade</h1>
+    <h2 id="npsh-title" class="module-title">NPSH + Afinidade</h2>
     <p class="module-desc">NPSH disponível na sucção e efeito de variar rotação/diâmetro do rotor (leis de afinidade).</p>
 
     <h2 class="subhead">NPSH disponível</h2>
@@ -813,7 +814,7 @@
 
   <!-- ============ DIÂMETRO ECONÔMICO ============ -->
   <section class="module" data-module="econ" aria-labelledby="econ-title" hidden>
-    <h1 id="econ-title" class="module-title">Diâmetro Econômico</h1>
+    <h2 id="econ-title" class="module-title">Diâmetro Econômico</h2>
     <p class="module-desc">Balanço entre custo de bombeamento (energia) e custo de tubulação — diâmetro que minimiza o custo anual total.</p>
 
     <div class="panel form-panel">
@@ -902,7 +903,7 @@
 
   <!-- ============ CONVERSOR + PAINEL ============ -->
   <section class="module" data-module="conv" aria-labelledby="conv-title" hidden>
-    <h1 id="conv-title" class="module-title">Conversor &amp; Painel</h1>
+    <h2 id="conv-title" class="module-title">Conversor &amp; Painel</h2>
     <p class="module-desc">Conversão rápida de unidades e resumo dos últimos resultados de cada módulo.</p>
 
     <div class="panel form-panel">
@@ -939,7 +940,7 @@
 
   <!-- ============ VASOS DE PRESSÃO (ASME VIII Div.1) ============ -->
   <section class="module" data-module="vaso" aria-labelledby="vaso-title" hidden>
-    <h1 id="vaso-title" class="module-title">Vasos de Pressão</h1>
+    <h2 id="vaso-title" class="module-title">Vasos de Pressão</h2>
     <p class="module-desc">Espessura mínima de casco e tampo (ASME VIII Div.1, UG-27/UG-32) e verificação de MAWP de uma espessura existente.</p>
 
     <div class="panel form-panel">
@@ -1003,7 +1004,7 @@
 
   <!-- ============ TROCADORES DE CALOR (LMTD/NTU) ============ -->
   <section class="module" data-module="troca" aria-labelledby="troca-title" hidden>
-    <h1 id="troca-title" class="module-title">Trocadores de Calor</h1>
+    <h2 id="troca-title" class="module-title">Trocadores de Calor</h2>
     <p class="module-desc">LMTD contracorrente com fator de correção F (TEMA, 1 casco / 2+ passes de tubo) e área requerida.</p>
 
     <div class="panel form-panel">
@@ -1059,7 +1060,7 @@
 
   <!-- ============ COLUNAS / TORRES ============ -->
   <section class="module" data-module="coluna" aria-labelledby="coluna-title" hidden>
-    <h1 id="coluna-title" class="module-title">Colunas / Torres</h1>
+    <h2 id="coluna-title" class="module-title">Colunas / Torres</h2>
     <p class="module-desc">Dimensionamento por inundação — pratos (Souders-Brown) e recheio (fator de capacidade F<sub>s</sub>).</p>
 
     <h2 class="subhead">Pratos — velocidade de inundação</h2>
@@ -1123,7 +1124,7 @@
 
   <!-- ============ COMPRESSORES (curvas politrópica/isentrópica) ============ -->
   <section class="module" data-module="comprr" aria-labelledby="comprr-title" hidden>
-    <h1 id="comprr-title" class="module-title">Compressores</h1>
+    <h2 id="comprr-title" class="module-title">Compressores</h2>
     <p class="module-desc">Compressão politrópica e isentrópica de gás — temperatura de descarga e potência ao eixo.</p>
 
     <div class="panel form-panel">
@@ -1181,7 +1182,7 @@
 
   <!-- ============ MEDIÇÃO DE VAZÃO (ISO 5167 — placa de orifício) ============ -->
   <section class="module" data-module="orif" aria-labelledby="orif-title" hidden>
-    <h1 id="orif-title" class="module-title">Medição de Vazão</h1>
+    <h2 id="orif-title" class="module-title">Medição de Vazão</h2>
     <p class="module-desc">Vazão a partir de ΔP medido em placa de orifício (ISO 5167-2, tomadas em canto/flange).</p>
 
     <div class="panel form-panel">
@@ -1240,7 +1241,7 @@
 
   <!-- ============ VAPOR / CONDENSADO ============ -->
   <section class="module" data-module="vapor" aria-labelledby="vapor-title" hidden>
-    <h1 id="vapor-title" class="module-title">Vapor / Condensado</h1>
+    <h2 id="vapor-title" class="module-title">Vapor / Condensado</h2>
     <p class="module-desc">Propriedades do vapor saturado por interpolação de tabela, vapor de reevaporação (flash) e consumo de vapor para aquecimento.</p>
 
     <div class="panel form-panel">
@@ -1295,7 +1296,7 @@
 
   <!-- ============ ÁGUA DE RESFRIAMENTO ============ -->
   <section class="module" data-module="agua" aria-labelledby="agua-title" hidden>
-    <h1 id="agua-title" class="module-title">Água de Resfriamento</h1>
+    <h2 id="agua-title" class="module-title">Água de Resfriamento</h2>
     <p class="module-desc">Balanço térmico de torre de resfriamento — carga térmica, evaporação, purga e reposição total.</p>
 
     <div class="panel form-panel">
@@ -1338,7 +1339,7 @@
 
   <!-- ============ FORNOS / CALDEIRAS ============ -->
   <section class="module" data-module="forno" aria-labelledby="forno-title" hidden>
-    <h1 id="forno-title" class="module-title">Fornos / Caldeiras</h1>
+    <h2 id="forno-title" class="module-title">Fornos / Caldeiras</h2>
     <p class="module-desc">Eficiência de combustão pelo método indireto (perda pelos gases, fórmula de Siegert).</p>
 
     <div class="panel form-panel">
@@ -1378,7 +1379,7 @@
 
   <!-- ============ TANQUES (API 650/2000) ============ -->
   <section class="module" data-module="tanque" aria-labelledby="tanque-title" hidden>
-    <h1 id="tanque-title" class="module-title">Tanques</h1>
+    <h2 id="tanque-title" class="module-title">Tanques</h2>
     <p class="module-desc">Espessura do costado pelo método de 1 pé (API 650) e volume útil de tanques atmosféricos.</p>
 
     <div class="panel form-panel">
@@ -1478,7 +1479,7 @@
 
   <!-- ============ FLARE / HEADER (API 521) ============ -->
   <section class="module" data-module="flare" aria-labelledby="flare-title" hidden>
-    <h1 id="flare-title" class="module-title">Flare / Header</h1>
+    <h2 id="flare-title" class="module-title">Flare / Header</h2>
     <p class="module-desc">Dimensionamento de header de alívio por limite de número de Mach (API 521).</p>
 
     <div class="panel form-panel">
@@ -1541,7 +1542,7 @@
 
   <!-- ============ SUPORTES / EXPANSÃO TÉRMICA / ISOLAMENTO ============ -->
   <section class="module" data-module="termico" aria-labelledby="termico-title" hidden>
-    <h1 id="termico-title" class="module-title">Suportes / Expansão / Isolamento</h1>
+    <h2 id="termico-title" class="module-title">Suportes / Expansão / Isolamento</h2>
     <p class="module-desc">Vão máximo entre suportes, dilatação térmica linear e perda de calor por isolamento.</p>
 
     <h2 class="subhead">Vão máximo entre suportes</h2>
@@ -1643,7 +1644,7 @@
 
   <!-- ============ FILTROS ============ -->
   <section class="module" data-module="filtro" aria-labelledby="filtro-title" hidden>
-    <h1 id="filtro-title" class="module-title">Filtros</h1>
+    <h2 id="filtro-title" class="module-title">Filtros</h2>
     <p class="module-desc">Perda de carga em filtros/coadores (elemento limpo) e percentual de colmatação em serviço.</p>
 
     <div class="panel form-panel">
@@ -1699,7 +1700,7 @@
 
   <!-- ============ MATERIAIS / CORROSÃO ============ -->
   <section class="module" data-module="material" aria-labelledby="material-title" hidden>
-    <h1 id="material-title" class="module-title">Materiais / Corrosão</h1>
+    <h2 id="material-title" class="module-title">Materiais / Corrosão</h2>
     <p class="module-desc">Compatibilidade geral material × fluido — triagem preliminar, não substitui avaliação de engenharia de materiais.</p>
 
     <div class="panel form-panel">
@@ -1747,7 +1748,7 @@
 
   <!-- ============ DIAGNÓSTICO POR SINTOMA ============ -->
   <section class="module" data-module="diag" aria-labelledby="diag-title" hidden>
-    <h1 id="diag-title" class="module-title">Diagnóstico por Sintoma</h1>
+    <h2 id="diag-title" class="module-title">Diagnóstico por Sintoma</h2>
     <p class="module-desc">Ponto de partida para investigação — causas prováveis mais comuns e qual módulo usar para verificar cada uma.</p>
 
     <div class="panel form-panel">
@@ -1772,7 +1773,7 @@
   </section>
 
   <section class="module" data-module="partida" aria-labelledby="partida-title" hidden>
-    <h1 id="partida-title" class="module-title">Partida e Parada Segura</h1>
+    <h2 id="partida-title" class="module-title">Partida e Parada Segura</h2>
     <p class="module-desc">Checklist de campo por fase — preparação, partida, operação, parada e emergência. Sem cálculo: marque cada item conforme verificado.</p>
 
     <div class="panel form-panel">
@@ -1794,7 +1795,7 @@
   </section>
 
   <section class="module" data-module="inspecao" aria-labelledby="inspecao-title" hidden>
-    <h1 id="inspecao-title" class="module-title">Inspeção Visual</h1>
+    <h2 id="inspecao-title" class="module-title">Inspeção Visual</h2>
     <p class="module-desc">Checklist de campo por categoria — tubulação, suportes, equipamentos, vasos, instrumentos, segurança e ambiente. Sem cálculo: marque cada item como OK ou NOK.</p>
 
     <div class="panel form-panel">
@@ -1816,7 +1817,7 @@
   </section>
 
   <section class="module" data-module="hazop" aria-labelledby="hazop-title" hidden>
-    <h1 id="hazop-title" class="module-title">HAZOP / LOPA</h1>
+    <h2 id="hazop-title" class="module-title">HAZOP / LOPA</h2>
     <p class="module-desc">Checklist de desvios de processo por equipamento (palavra-guia HAZOP + parâmetro), com causa e consequência típicas e a camada de proteção independente (IPL) já coberta pelo app — metodologia pública e estabelecida (CCPS), não uma HAZOP/LOPA formal do seu processo real. Não é exaustivo: é ponto de partida para a sessão de revisão de segurança, não substitui um estudo formal com a equipe multidisciplinar.</p>
 
     <div class="panel form-panel">
@@ -1837,7 +1838,7 @@
 
   <!-- ============ RBI SIMPLIFICADO (Sprint H1) ============ -->
   <section class="module" data-module="rbi" aria-labelledby="rbi-title" hidden>
-    <h1 id="rbi-title" class="module-title">RBI Simplificado</h1>
+    <h2 id="rbi-title" class="module-title">RBI Simplificado</h2>
     <p class="module-desc">Matriz de risco qualitativa (Probabilidade de Falha × Consequência de Falha), seguindo a lógica geral do API RP 580 — julgamento de engenharia documentado caso a caso, sem reproduzir as tabelas pagas do RP 581. Cadastre quantos equipamentos quiser; Risco, Classe e Frequência sugerida são calculados automaticamente.</p>
 
     <h2 class="subhead">Critérios de PoF e CoF</h2>
@@ -1886,7 +1887,7 @@
 
   <!-- ============ EMISSÕES FUGITIVAS / LDAR (Sprint H2) ============ -->
   <section class="module" data-module="ldar" aria-labelledby="ldar-title" hidden>
-    <h1 id="ldar-title" class="module-title">Emissões Fugitivas / LDAR</h1>
+    <h2 id="ldar-title" class="module-title">Emissões Fugitivas / LDAR</h2>
     <p class="module-desc">Inventário de fontes de emissão fugitiva × fatores médios EPA AP-42 Método 21, somando kg/h e t/ano automaticamente.</p>
 
     <div class="panel form-panel">
@@ -1911,7 +1912,7 @@
 
   <!-- ============ EMISSÕES DE COMBUSTÃO (Sprint H9) ============ -->
   <section class="module" data-module="emissoes" aria-labelledby="emissoes-title" hidden>
-    <h1 id="emissoes-title" class="module-title">Emissões de Combustão</h1>
+    <h2 id="emissoes-title" class="module-title">Emissões de Combustão</h2>
     <p class="module-desc">CO2, NOx, CO e SO2 de chaminé por tipo de combustível queimado (fornos/caldeiras) — diferente do módulo LDAR, que cobre vazamento fugitivo de componentes, não queima. Consumo em Nm³/h para combustíveis gasosos, kg/h para líquidos.</p>
 
     <div class="panel form-panel">
@@ -1939,7 +1940,7 @@
 
   <!-- ============ PSSR — CHECKLIST PRÉ-PARTIDA (Sprint H3) ============ -->
   <section class="module" data-module="pssr" aria-labelledby="pssr-title" hidden>
-    <h1 id="pssr-title" class="module-title">PSSR — Checklist Pré-Partida</h1>
+    <h2 id="pssr-title" class="module-title">PSSR — Checklist Pré-Partida</h2>
     <p class="module-desc">Revisão formal de segurança feita uma vez, antes da primeira partida de uma unidade nova ou após uma modificação relevante (MOC) — diferente do checklist operacional do módulo "Partida e Parada Segura" (esse é para o dia a dia de um sistema já em rotina). Marque o status só depois de verificar de fato.</p>
 
     <div class="panel table-panel">
@@ -1971,7 +1972,7 @@
 
   <!-- ============ BALANÇO DE UTILIDADES (Sprint H4) ============ -->
   <section class="module" data-module="utilidades" aria-labelledby="util-title" hidden>
-    <h1 id="util-title" class="module-title">Balanço de Utilidades</h1>
+    <h2 id="util-title" class="module-title">Balanço de Utilidades</h2>
     <p class="module-desc">Cadastre os consumidores de utilidade da sua planta (vapor, água de resfriamento, nitrogênio inerte e elétrico) e veja o total de cada uma. Complementa — não substitui — os módulos "Vapor e Condensado" e "Água de Resfriamento", que dimensionam uma linha/torre por vez: aqui é a visão geral da unidade.</p>
 
     <h2 class="subhead">Vapor</h2>
@@ -2044,7 +2045,7 @@
   </section>
 
   <section class="module" data-module="pulmao" aria-labelledby="pulmao-title" hidden>
-    <h1 id="pulmao-title" class="module-title">Tanque de Pulmão (Surge Tank)</h1>
+    <h2 id="pulmao-title" class="module-title">Tanque de Pulmão (Surge Tank)</h2>
     <p class="module-desc">Volume mínimo para absorver o desbalanço entre vazão de entrada e saída, mais uma margem por variação esperada, sustentado pelo tempo de retenção alvo.</p>
 
     <div class="panel form-panel">
@@ -2081,7 +2082,7 @@
   </section>
 
   <section class="module" data-module="balanco" aria-labelledby="balanco-title" hidden>
-    <h1 id="balanco-title" class="module-title">Balanço de Massa</h1>
+    <h2 id="balanco-title" class="module-title">Balanço de Massa</h2>
     <p class="module-desc">Até 3 correntes de entrada + 1 de saída (vazão, densidade, concentração de traço), com verificação de fechamento de massa e de concentração.</p>
 
     <div class="panel form-panel">
@@ -2162,7 +2163,7 @@
   </section>
 
   <section class="module" data-module="vpl" aria-labelledby="vpl-title" hidden>
-    <h1 id="vpl-title" class="module-title">Análise Econômica</h1>
+    <h2 id="vpl-title" class="module-title">Análise Econômica</h2>
     <p class="module-desc">Fluxo de caixa anual constante, payback simples e descontado, VPL e TIR. Complementa o Diâmetro Econômico — são cálculos diferentes.</p>
 
     <div class="panel form-panel">
@@ -2204,7 +2205,7 @@
 
   <!-- ============ CAPEX POR CORRELAÇÃO (Sprint H5) ============ -->
   <section class="module" data-module="capex" aria-labelledby="capex-title" hidden>
-    <h1 id="capex-title" class="module-title">CAPEX por Correlação</h1>
+    <h2 id="capex-title" class="module-title">CAPEX por Correlação</h2>
     <p class="module-desc">Estimativa de ordem de grandeza (±30-40%) por equipamento/categoria — regra dos seis décimos (Guthrie/Turton) escalonada por capacidade, corrigida de ano-base para o ano atual pelo índice CEPCI. Use quando não tiver cotação real de fornecedor.</p>
 
     <div class="panel form-panel">
@@ -2268,7 +2269,7 @@
   </section>
 
   <section class="module" data-module="ventosas" aria-labelledby="ventosas-title" hidden>
-    <h1 id="ventosas-title" class="module-title">Ventosas e VAP</h1>
+    <h2 id="ventosas-title" class="module-title">Ventosas e VAP</h2>
     <p class="module-desc">Dimensionamento de ventosas (orifício grande de enchimento/esvaziamento, orifício pequeno de purga contínua) e de válvula de admissão/alívio de vácuo (VAP) em transiente.</p>
 
     <div class="panel form-panel">
@@ -2353,7 +2354,7 @@
   </section>
 
   <section class="module" data-module="transientes" aria-labelledby="transientes-title" hidden>
-    <h1 id="transientes-title" class="module-title">Transientes — Golpe de Aríete</h1>
+    <h2 id="transientes-title" class="module-title">Transientes — Golpe de Aríete</h2>
     <p class="module-desc">Sobrepressão por fechamento de válvula/parada de bomba (Joukowsky/Allievi). Item de segurança — compare sempre a pressão máxima resultante com a PN do tubo.</p>
 
     <div class="panel form-panel">
@@ -2396,7 +2397,7 @@
 
   <!-- ============ TORRE DE RESFRIAMENTO (Merkel) — Sprint H12 / item #1 fila expansão ============ -->
   <section class="module" data-module="torre" aria-labelledby="torre-title" hidden>
-    <h1 id="torre-title" class="module-title">Torre de Resfriamento (Merkel)</h1>
+    <h2 id="torre-title" class="module-title">Torre de Resfriamento (Merkel)</h2>
     <p class="module-desc">Característica requerida da torre (Merkel, Chebyshev 4 pontos) vs. característica disponível informada.</p>
 
     <div class="panel form-panel">
@@ -2444,7 +2445,7 @@
 
   <!-- ============ VÁLVULA JT + HIDRATO — Sprint H13 / item #3 fila expansão ============ -->
   <section class="module" data-module="jthid" aria-labelledby="jthid-title" hidden>
-    <h1 id="jthid-title" class="module-title">Válvula JT + Risco de Hidrato</h1>
+    <h2 id="jthid-title" class="module-title">Válvula JT + Risco de Hidrato</h2>
     <p class="module-desc">Queda de temperatura (Joule-Thomson, gás real) vs. temperatura de formação de hidrato (Motiee 1991) na pressão de saída.</p>
 
     <div class="panel form-panel">
@@ -2482,7 +2483,7 @@
 
   <!-- ============ REDE COM LOOPS (Hardy Cross) — Sprint H14 / item #7 fila expansão ============ -->
   <section class="module" data-module="hcross" aria-labelledby="hcross-title" hidden>
-    <h1 id="hcross-title" class="module-title">Rede com Loops (Hardy Cross)</h1>
+    <h2 id="hcross-title" class="module-title">Rede com Loops (Hardy Cross)</h2>
     <p class="module-desc">Topologia fixa de 2 loops / 5 trechos — fonte N1 → N2 e N4 em paralelo → N3, com trecho diagonal N2–N4 compartilhado.</p>
 
     <div class="panel form-panel">
@@ -2529,7 +2530,7 @@
 
   <!-- ============ AMINAS — TRIAGEM GPSA — Sprint H15 / item #9 fila expansão ============ -->
   <section class="module" data-module="aminas" aria-labelledby="aminas-title" hidden>
-    <h1 id="aminas-title" class="module-title">Aminas — Triagem GPSA</h1>
+    <h2 id="aminas-title" class="module-title">Aminas — Triagem GPSA</h2>
     <p class="module-desc">Dimensionamento preliminar de sistema de aminas (adoçamento H2S/CO2) — taxa de circulação por balanço de mols/loading, prática do GPSA Engineering Data Book.</p>
 
     <div class="panel form-panel">
@@ -2567,7 +2568,7 @@
 
   <!-- ============ SEPARADOR API ÁGUA-ÓLEO — Sprint H16 / item #14 fila expansão ============ -->
   <section class="module" data-module="separador_api" aria-labelledby="separador-api-title" hidden>
-    <h1 id="separador-api-title" class="module-title">Separador API Água-Óleo</h1>
+    <h2 id="separador-api-title" class="module-title">Separador API Água-Óleo</h2>
     <p class="module-desc">Dimensionamento de separador gravitacional retangular pela Lei de Stokes (API Publication 421) — gotícula de projeto 150 µm, velocidade horizontal limitada a 3 ft/min.</p>
 
     <div class="panel form-panel">
@@ -2598,7 +2599,7 @@
 
   <!-- ============ PROTEÇÃO CATÓDICA — Sprint H17 / item #15 fila expansão ============ -->
   <section class="module" data-module="protecao_catodica" aria-labelledby="catodica-title" hidden>
-    <h1 id="catodica-title" class="module-title">Proteção Catódica</h1>
+    <h2 id="catodica-title" class="module-title">Proteção Catódica</h2>
     <p class="module-desc">Dimensionamento de sistema de proteção catódica (tanques/tubulação enterrada ou submersa) por densidade de corrente — NACE SP0169. Ânodo de sacrifício ou corrente impressa.</p>
 
     <div class="panel form-panel">
@@ -2632,7 +2633,7 @@
 
   <!-- ============ MEDIÇÃO FISCAL — PLACA DE ORIFÍCIO — Sprint H18 / item #16 fila expansão ============ -->
   <section class="module" data-module="orificio" aria-labelledby="orificio-title" hidden>
-    <h1 id="orificio-title" class="module-title">Medição Fiscal — Placa de Orifício</h1>
+    <h2 id="orificio-title" class="module-title">Medição Fiscal — Placa de Orifício</h2>
     <p class="module-desc">Vazão por placa de orifício (ISO 5167-2 / AGA-3 / API MPMS Cap. 14.3), coeficiente de descarga Reader-Harris/Gallagher, resolvido por iteração. Fluido líquido (ε=1).</p>
 
     <div class="panel form-panel">
@@ -2667,7 +2668,7 @@
 
   <!-- ============ PURGADORES — CAPACIDADE REQUERIDA — Sprint H19 / item #17 fila expansão ============ -->
   <section class="module" data-module="purgadores" aria-labelledby="purgadores-title" hidden>
-    <h1 id="purgadores-title" class="module-title">Purgadores — Capacidade Requerida</h1>
+    <h2 id="purgadores-title" class="module-title">Purgadores — Capacidade Requerida</h2>
     <p class="module-desc">Capacidade requerida de purgador de vapor = carga de condensado (balanço térmico) × fator de segurança. NÃO seleciona um purgador específico — isso depende de tabela de capacidade do fabricante.</p>
 
     <div class="panel form-panel">
@@ -2694,7 +2695,7 @@
 
   <!-- ============ TUBULAÇÃO DE HIDROGÊNIO — ASME B31.12 — Sprint H20 / item #18 fila expansão ============ -->
   <section class="module" data-module="h2_tubulacao" aria-labelledby="h2tub-title" hidden>
-    <h1 id="h2tub-title" class="module-title">Tubulação H2 — ASME B31.12</h1>
+    <h2 id="h2tub-title" class="module-title">Tubulação H2 — ASME B31.12</h2>
     <p class="module-desc">Espessura mínima de parede para serviço de hidrogênio — mesma fórmula de Barlow já usada na aba "Espessura de Parede B31.3", com tensão admissível já reduzida pelo Material Performance Factor do B31.12.</p>
 
     <div class="panel form-panel">
@@ -2721,7 +2722,7 @@
 
   <!-- ============ PROTEÇÃO CONTRA INCÊNDIO — Sprint H21 / item #19 fila expansão (fecha bloco #14-19) ============ -->
   <section class="module" data-module="incendio" aria-labelledby="incendio-title" hidden>
-    <h1 id="incendio-title" class="module-title">Proteção Contra Incêndio</h1>
+    <h2 id="incendio-title" class="module-title">Proteção Contra Incêndio</h2>
     <p class="module-desc">Bomba de incêndio (vazão, TDH, verificação de curva NFPA 20) e sistema de espuma (vazão de solução, volume de concentrado, NFPA 11).</p>
 
     <div class="panel form-panel">
@@ -2786,7 +2787,7 @@
 
   <!-- ============ HRSG — NÍVEL ÚNICO DE PRESSÃO — Sprint H22 / item #11 fila expansão (esforço Alto) ============ -->
   <section class="module" data-module="hrsg" aria-labelledby="hrsg-title" hidden>
-    <h1 id="hrsg-title" class="module-title">HRSG — Nível Único de Pressão</h1>
+    <h2 id="hrsg-title" class="module-title">HRSG — Nível Único de Pressão</h2>
     <p class="module-desc">ESCOPO REDUZIDO: HRSG de 1 nível de pressão (SH+evaporador+economizador), não a cascata multi-nível de um HRSG completo. Vazão de vapor DETERMINADA pelo ponto de pinch.</p>
 
     <div class="panel form-panel">
@@ -2829,7 +2830,7 @@
 
   <!-- ============ COLUNA BINÁRIA — PRATO A PRATO — Sprint H23 / item #12 fila (escopo muito reduzido) ============ -->
   <section class="module" data-module="coluna_binaria" aria-labelledby="coluna-title" hidden>
-    <h1 id="coluna-title" class="module-title">Coluna Binária — Prato a Prato</h1>
+    <h2 id="coluna-title" class="module-title">Coluna Binária — Prato a Prato</h2>
     <p class="module-desc">⚠ ESCOPO MUITO REDUZIDO: o item original pedia coluna rigorosa multicomponente (Naphtali-Sandholm, NRTL/UNIQUAC) — "o item de maior esforço da lista", exigindo banco de dados termodinâmico que o projeto não tem. Esta versão resolve apenas uma coluna BINÁRIA, volatilidade relativa α constante, vazão molar constante (CMO), por stepping algébrico (equivalente ao McCabe-Thiele). NÃO é a ferramenta multicomponente original.</p>
 
     <div class="panel form-panel">
@@ -2859,7 +2860,7 @@
 
   <!-- ============ AMINAS — ABSORÇÃO KREMSER — Sprint H24 / item #13 fila (escopo alternativo) ============ -->
   <section class="module" data-module="amina_kremser" aria-labelledby="kremser-title" hidden>
-    <h1 id="kremser-title" class="module-title">Aminas — Absorção Kremser</h1>
+    <h2 id="kremser-title" class="module-title">Aminas — Absorção Kremser</h2>
     <p class="module-desc">⚠ ESCOPO ALTERNATIVO: item original pedia Kent-Eisenberg (coeficientes sem fonte verificada). Esta versão usa método de Kremser (rigoroso para absorção geral), com inclinação da linha de equilíbrio (m) como entrada do usuário. Complementa a aba Aminas — Triagem GPSA.</p>
 
     <div class="panel form-panel">
@@ -2887,7 +2888,7 @@
 
   <!-- ============ BLOWDOWN — API 521 — Sprint H25 / item #21 fila expansão ============ -->
   <section class="module" data-module="blowdown" aria-labelledby="blowdown-title" hidden>
-    <h1 id="blowdown-title" class="module-title">Blowdown — API 521</h1>
+    <h2 id="blowdown-title" class="module-title">Blowdown — API 521</h2>
     <p class="module-desc">Despressurização de emergência: escoamento crítico + balanço de massa do vaso, temperatura isentrópica. Critério API 521: 50% da pressão de projeto (ou 6,9 barg, o menor) em até 15 min.</p>
 
     <div class="panel form-panel">
@@ -2920,7 +2921,7 @@
 
   <!-- ============ SILO — DIÂMETRO CRÍTICO JENIKE — Sprint H26 / item #24 fila (escopo reduzido) ============ -->
   <section class="module" data-module="silo_jenike" aria-labelledby="silo-title" hidden>
-    <h1 id="silo-title" class="module-title">Silo — Diâmetro Crítico (Jenike)</h1>
+    <h2 id="silo-title" class="module-title">Silo — Diâmetro Crítico (Jenike)</h2>
     <p class="module-desc">⚠ ESCOPO REDUZIDO: só o diâmetro crítico de saída para evitar arqueamento. O ângulo máximo do hopper (cartas gráficas de Jenike) NÃO é calculado aqui — uma tentativa inicial com fórmula "regra prática" foi descartada por falta de confiança na fonte.</p>
 
     <div class="panel form-panel">
@@ -2939,7 +2940,7 @@
 
   <!-- ============ GNL/GLP — BOIL-OFF — Sprint H27 / item #25 fila expansão ============ -->
   <section class="module" data-module="boiloff" aria-labelledby="boiloff-title" hidden>
-    <h1 id="boiloff-title" class="module-title">GNL/GLP — Boil-off</h1>
+    <h2 id="boiloff-title" class="module-title">GNL/GLP — Boil-off</h2>
     <p class="module-desc">Taxa de boil-off por condução de calor através do isolamento (Fourier) / calor latente de vaporização.</p>
 
     <div class="panel form-panel">
@@ -2969,7 +2970,7 @@
 
   <!-- ============ COLUNA RECHEIO — DIÂMETRO — Sprint H28 / item #26 fila (escopo muito reduzido) ============ -->
   <section class="module" data-module="coluna_recheio" aria-labelledby="recheio-title" hidden>
-    <h1 id="recheio-title" class="module-title">Coluna Recheio — Diâmetro</h1>
+    <h2 id="recheio-title" class="module-title">Coluna Recheio — Diâmetro</h2>
     <p class="module-desc">⚠ ESCOPO MUITO REDUZIDO: item original pedia modelo Rocha-Bravo-Fair completo (hidráulica+HETP). Esta versão calcula só o diâmetro por velocidade de inundação (Souders-Brown), com C-factor do fabricante como entrada. Não calcula HETP nem perda de carga.</p>
 
     <div class="panel form-panel">
@@ -2994,7 +2995,7 @@
 
   <!-- ============ CO2 CCS — PENG-ROBINSON — Sprint H29 / item #27 fila (ÚLTIMO ITEM) ============ -->
   <section class="module" data-module="co2_ccs" aria-labelledby="co2-title" hidden>
-    <h1 id="co2-title" class="module-title">CO2 CCS — Peng-Robinson</h1>
+    <h2 id="co2-title" class="module-title">CO2 CCS — Peng-Robinson</h2>
     <p class="module-desc">⚠ ESCOPO REDUZIDO: mesma decisão do Motor-25 (REATORES) — Peng-Robinson em vez de Span-Wagner/GERG-2008. Menos precisa perto do ponto crítico do CO2, justamente onde CCS opera. Sem verificação contra dado experimental nesta sessão.</p>
 
     <div class="panel form-panel">
