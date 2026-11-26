@@ -17,7 +17,7 @@
 - PSV — Válvula de Alívio
 - NPSH + Afinidade
 - Diâmetro Econômico
-- Conversor &amp; Painel
+- Conversor & Painel
 - Vasos de Pressão
 - Trocadores de Calor
 - Colunas / Torres
