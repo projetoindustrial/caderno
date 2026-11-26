@@ -46,3 +46,7 @@ senão quem já instalou continua vendo a versão antiga.
 
 Parte do projeto industrial, junto de [IndústriaEDU](https://projetoindustrial.github.io/industriaedu/)
 e [Manutenção](https://projetoindustrial.github.io/manutencao/).
+
+## Licença
+
+O código deste repositório está sob a licença [MIT](LICENSE). Dados, nomes, textos e marcas de terceiros citados ou reunidos aqui continuam sob as licenças e os direitos de cada fonte e não são cobertos por esta licença.
