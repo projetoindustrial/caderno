@@ -1,4 +1,4 @@
-const CACHE_NAME = "caderno-v11";
+const CACHE_NAME = "caderno-v12";
 const ASSETS = [
   "./",
   "./index.html",
